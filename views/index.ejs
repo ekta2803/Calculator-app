@@ -1,0 +1,108 @@
+<html>
+  <head>
+    <title>Calculator</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script>
+	
+	
+	</script>
+	
+  </head>
+  <body>
+  
+
+  <form action="/calci" method="post" class="afterSignIn">
+    <!-- This panel is for login -->
+    <%
+    var results = results;
+    var inp1 = inp1;
+    var inp2 = inp2;
+    var invalid = invalid;
+    if(invalid == 1){ %>
+    <label class="inputUsername" class="col-sm-2 control-label pull-left" style="color:red;">Input1 or Input 2 is not a number.</label>
+     <%} else if(invalid ==3){ %>
+    <label class="inputUsername" class="col-sm-2 control-label pull-left" style="color:red;">Input 2 has a value 0. Result cannot be Infinity</label>
+     <%}else if(invalid ==4){ %>
+    <label class="inputUsername" class="col-sm-2 control-label pull-left" style="color:red;">One of the Input value is not entered.</label>
+     <%}%>
+    <div class="panel panel-primary">
+      <!-- Default panel contents -->
+        <div class="panel-heading">Calculator</div>
+        <div class="panel-body">
+           <form class="form-horizontal" role="form">
+           <table><tr height="50px">
+		               <div class="form-group  usernameDiv">
+		                  <td width="80px"><label class="inputUsername" class="col-sm-2 control-label pull-left">Input 1</label></td>
+		                  <div class="col-sm-10">
+		                      <td><input type="text" class="form-control" name="input1" id="input1" placeholder="Input numbers only " value = 
+		                      <%
+		                      	if(inp1!=""){%>
+		                		<%=inp1%>
+		                      <%}
+		                      %>
+		                      
+		                      ></td>
+		                  </div>
+		               </div>
+		               
+		               </tr>
+		               <tr height="50px">
+	                  <div class="form-group  usernameDiv">
+	                    <td width="80px"><label class="inputUsername" class="col-sm-2 control-label pull-left">Input 2</label></td>
+		                  <div class="col-sm-10">
+		                      <td><input type="text" class="form-control" name="input2" id="input2" placeholder="Input numbers only " value = 
+		                      <%
+		                      	if(inp2!=""){%>
+		                		<%=inp2%>
+		                      <%}
+		                      %>
+		                      ></td>
+		                  </div>
+	                  </div>
+	                  
+	                  </tr>
+	                  
+	                   <tr height="50px">
+	                  <div class="form-group  usernameDiv">
+	                    <td width="80px"><label class="inputUsername" class="col-sm-2 control-label pull-left">Result</label></td>
+		                  <div class="col-sm-10">
+		                      <td><input type="email" class="form-control" id="input2" placeholder="Result " readonly value = 
+		                      
+		                      <%
+		                      	if(results!=""){%>
+		                		<%=results%>
+		                      <%}
+		                      %>
+		                      ></td>
+		                  </div>
+	                  </div>
+	                  
+	                  </tr>
+	                  </table>
+	                  <table>
+	                  <tr>
+	                  <div class="form-group ">
+	                    <div class="pull-left signIn">
+	                      <td width="80px"><button type="submit" class="btn btn-primary" name="op" value="add">Add</button></td>
+	                       <td width="110px"><button type="submit" class="btn btn-primary" name="op" value="subtract">Subtract</button></td>
+	                       <td width="100px"><button type="submit" class="btn btn-primary" name="op" value="multiply">Multiply</button></td>
+	                        <td width="85px"><button type="submit" class="btn btn-primary" name="op" value="divide">Divide</button></td>
+	                        <td width="80px"><button type="submit" class="btn btn-primary" name="op" value="clear">Clear</button></td>
+	                    </div>
+	                  </div>
+	                  </tr>
+              </form>
+        </div>
+	</div>
+ </form>	
+ </body>
+ 
+</html>
